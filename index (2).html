@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#56359b">
+
+<title>English Learning — Curso Completo</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f7f3ff;
+  color:#2f2740;
+  font-family:Arial,sans-serif;
+  padding-bottom:80px;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header{
+  background:linear-gradient(150deg,#4d2f80,#7957b5);
+  color:white;
+  padding:22px 17px 25px;
+  border-radius:0 0 30px 30px;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:42px;
+}
+
+header h1{
+  font-size:27px;
+  margin:5px 0;
+}
+
+header p{
+  margin:0;
+  opacity:.9;
+}
+
+.stats{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+
+.stat{
+  flex:1;
+  background:#ffffff1c;
+  border-radius:14px;
+  padding:9px;
+  font-size:11px;
+}
+
+.stat b{
+  display:block;
+  font-size:17px;
+  margin-top:3px;
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+main{
+  max-width:850px;
+  margin:auto;
+  padding:16px;
+}
+
+.screen{
+  display:none;
+}
+
+.screen.active{
+  display:block;
+}
+
+h2{
+  margin:7px 0;
+}
+
+.sub{
+  font-size:13px;
+  color:#766c81;
+  margin-bottom:14px;
+}
+
+/* =========================
+   TRILHA
+========================= */
+
+.path{
+  position:relative;
+  padding:8px 5px 30px;
+}
+
+.path:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:15px;
+  bottom:10px;
+  border-left:4px dashed #d9cfee;
+  transform:translateX(-50%);
+}
+
+.node{
+  position:relative;
+  z-index:1;
+  margin:18px auto;
+  max-width:360px;
+  background:#fff;
+  border-radius:22px;
+  padding:14px;
+  box-shadow:0 3px 0 #ddd5e8;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  border:0;
+  width:100%;
+  text-align:left;
+}
+
+.node .ico{
+  width:53px;
+  height:53px;
+  border-radius:50%;
+  background:#eee7fa;
+  display:grid;
+  place-items:center;
+  font-size:27px;
+  flex:none;
+}
+
+.node.done .ico{
+  background:#e2f6e9;
+}
+
+.node.locked{
+  opacity:.5;
+}
+
+.node small{
+  display:block;
+  color:#756a80;
+  margin-top:3px;
+}
+
+.tag{
+  margin-left:auto;
+  background:#eee8f9;
+  color:#56359b;
+  border-radius:10px;
+  padding:5px 8px;
+  font-size:10px;
+  font-weight:700;
+}
+
+/* =========================
+   CARTÕES
+========================= */
+
+.panel,
+.card,
+.quiz{
+  background:#fff;
+  border-radius:20px;
+  padding:15px;
+  box-shadow:0 3px 0 #ddd5e8;
+  margin-bottom:12px;
+}
+
+.lessonhead{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.back{
+  border:0;
+  background:#fff;
+  border-radius:12px;
+  padding:9px 12px;
+  font-size:18px;
+}
+
+.steps{
+  display:flex;
+  gap:6px;
+  margin:13px 0;
+}
+
+.step{
+  height:7px;
+  flex:1;
+  background:#e6e0ef;
+  border-radius:10px;
+}
+
+.step.on{
+  background:#6744a4;
+}
+
+/* =========================
+   VOCABULÁRIO
+========================= */
+
+.words{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.word{
+  text-align:center;
+  background:#fbf9ff;
+  border:2px solid #eee8f6;
+  border-radius:16px;
+  padding:11px;
+}
+
+.pic{
+  font-size:31px;
+}
+
+.word b{
+  display:block;
+  font-size:17px;
+  margin-top:4px;
+}
+
+.pt{
+  color:#746980;
+  font-size:12px;
+}
+
+.fon{
+  color:#9a7b3a;
+  font-size:12px;
+  margin-top:2px;
+}
+
+.play{
+  border:0;
+  background:#5b3a9d;
+  color:white;
+  border-radius:50%;
+  width:38px;
+  height:38px;
+  margin-top:7px;
+  cursor:pointer;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.primary,
+.soft{
+  border:0;
+  border-radius:13px;
+  padding:11px 15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.primary{
+  background:#5b3a9d;
+  color:white;
+}
+
+.soft{
+  background:#efe9f9;
+  color:#56359b;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:13px;
+}
+
+/* =========================
+   LEITURA
+========================= */
+
+.reading{
+  font-size:18px;
+  line-height:1.8;
+  background:white;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 3px 0 #ddd5e8;
+}
+
+.reading .line{
+  margin:10px 0;
+}
+
+.reading .en{
+  font-weight:700;
+}
+
+.reading .pt{
+  font-size:14px;
+}
+
+.wordtap{
+  background:#f0eafa;
+  border:0;
+  border-radius:7px;
+  padding:2px 5px;
+  color:#56359b;
+  font-weight:700;
+  cursor:pointer;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz .q{
+  font-size:20px;
+  font-weight:800;
+  margin-top:10px;
+}
+
+.translation{
+  color:#766c81;
+  margin:6px 0 13px;
+}
+
+.opts{
+  display:grid;
+  gap:9px;
+}
+
+.opt{
+  border:2px solid #e5ddef;
+  background:white;
+  border-radius:14px;
+  padding:12px;
+  text-align:left;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.ok{
+  background:#e4f8eb !important;
+  border-color:#55a870 !important;
+}
+
+.bad{
+  background:#ffe7e5 !important;
+  border-color:#db7066 !important;
+}
+
+.feedback{
+  min-height:25px;
+  font-weight:700;
+  margin:8px 0;
+}
+
+/* =========================
+   RESULTADO
+========================= */
+
+.result{
+  text-align:center;
+  padding:25px;
+}
+
+.bigscore{
+  font-size:45px;
+  font-weight:800;
+  color:#56359b;
+}
+
+.stars{
+  font-size:30px;
+}
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+.nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #e4ddef;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  padding:7px 5px;
+  z-index:10;
+}
+
+.nav button{
+  border:0;
+  background:none;
+  color:#786b85;
+  font-size:11px;
+  font-weight:700;
+}
+
+.nav button.active{
+  color:#56359b;
+}
+
+.nav b{
+  display:block;
+  font-size:20px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(min-width:700px){
+
+  .words{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="top">
+
+<div class="logo">🦉</div>
+
+<div>🇬🇧</div>
+
+</div>
+
+<h1>English Learning</h1>
+
+<p>O teu curso completo de inglês</p>
+
+<div class="stats">
+
+<div class="stat">
+⭐ Pontos
+<b id="score">0</b>
+</div>
+
+<div class="stat">
+📚 Lições
+<b id="lessons">0</b>
+</div>
+
+<div class="stat">
+🏆 Nível
+<b id="level">1</b>
+</div>
+
+</div>
+
+</header>
+
+
+<main>
+
+<!-- =====================
+     INÍCIO
+===================== -->
+
+<section id="home" class="screen active">
+
+<h2>🗺️ Trilha de aprendizagem</h2>
+
+<div class="sub">
+Avança uma lição de cada vez.
+</div>
+
+<div class="path" id="path"></div>
+
+</section>
+
+
+<!-- =====================
+     LIÇÃO
+===================== -->
+
+<section id="lesson" class="screen">
+
+<div class="lessonhead">
+
+<button class="back" onclick="show('home')">
+←
+</button>
+
+<div>
+
+<h2 id="title"></h2>
+
+<div class="sub" id="subtitle"></div>
+
+</div>
+
+</div>
+
+<div class="steps">
+
+<i class="step on"></i>
+<i class="step"></i>
+<i class="step"></i>
+<i class="step"></i>
+
+</div>
+
+<div id="lessonBody"></div>
+
+</section>
+
+
+<!-- =====================
+     LEITURA
+===================== -->
+
+<section id="reading" class="screen">
+
+<div class="lessonhead">
+
+<button class="back" onclick="show('home')">
+←
+</button>
+
+<div>
+
+<h2>📖 Leitura</h2>
+
+<div class="sub">
+Inglês + tradução
+</div>
+
+</div>
+
+</div>
+
+<div id="readingBody"></div>
+
+</section>
+
+
+<!-- =====================
+     QUIZ
+===================== -->
+
+<section id="quiz" class="screen">
+
+<h2>🧠 Quiz</h2>
+
+<div class="sub">
+Todas as perguntas têm tradução em português.
+</div>
+
+<div class="quiz">
+
+<div id="counter"></div>
+
+<div class="q" id="question"></div>
+
+<div class="translation" id="translation"></div>
+
+<div class="opts" id="opts"></div>
+
+<div class="feedback" id="feedback"></div>
+
+<button
+class="primary"
+id="next"
+onclick="nextQ()"
+style="display:none">
+
+Próxima →
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================
+     RESULTADO
+===================== -->
+
+<section id="result" class="screen">
+
+<div class="panel result">
+
+<div style="font-size:45px">
+🏆
+</div>
+
+<h2>Resultado da lição</h2>
+
+<div class="bigscore" id="resultScore">
+0/100
+</div>
+
+<div class="stars" id="resultStars">
+☆☆☆
+</div>
+
+<p id="resultText"></p>
+
+<div
+class="actions"
+style="justify-content:center">
+
+<button
+class="primary"
+onclick="show('home')">
+
+🗺️ Voltar à trilha
+
+</button>
+
+<button
+class="soft"
+onclick="startQuiz()">
+
+🔄 Refazer quiz
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================
+     MENU
+===================== -->
+
+<nav class="nav">
+
+<button
+data-s="home"
+onclick="show('home')"
+class="active">
+
+<b>🗺️</b>
+Trilha
+
+</button>
+
+<button
+data-s="reading"
+onclick="openReading()">
+
+<b>📖</b>
+Leitura
+
+</button>
+
+<button
+data-s="quiz"
+onclick="startQuiz()">
+
+<b>🧠</b>
+Quiz
+
+</button>
+
+<button
+data-s="home"
+onclick="show('home')">
+
+<b>🏆</b>
+Progresso
+
+</button>
+
+</nav>
+
+
+<script>
+
+/* =====================================
+   DADOS DAS LIÇÕES
+===================================== */
+
+const lessons = [
+
+{
+id:1,
+icon:"👋",
+title:"Primeiras Palavras",
+sub:"Cumprimentos, números, cores e animais",
+
+words:[
+
+["Hello","Olá","rê-lôu","👋"],
+["Goodbye","Adeus","gud-bái","👋"],
+["One","Um","uán","1️⃣"],
+["Two","Dois","tú","2️⃣"],
+["Red","Vermelho","réd","🔴"],
+["Blue","Azul","blú","🔵"],
+["Dog","Cão","dóg","🐶"],
+["Cat","Gato","két","🐱"]
+
+],
+
+reading:[
+
+["Hello! My name is Ana.","Olá! O meu nome é Ana."],
+
+["I like the color blue.","Eu gosto da cor azul."],
+
+["I have a dog and a cat.","Eu tenho um cão e um gato."]
+
+]
+
+},
+
+
+{
+id:2,
+icon:"🔤",
+title:"The Alphabet",
+sub:"As 26 letras do inglês",
+
+words:[
+
+["Apple","Maçã (letra A)","é-pol","🍎"],
+["Ball","Bola (letra B)","ból","⚽"],
+["Cat","Gato (letra C)","két","🐱"],
+["Dog","Cão (letra D)","dóg","🐶"],
+["Egg","Ovo (letra E)","ég","🥚"],
+["Fish","Peixe (letra F)","fích","🐟"],
+["Girl","Menina (letra G)","gérl","👧"],
+["House","Casa (letra H)","ráus","🏠"],
+["Ice cream","Gelado (letra I)","áis-krím","🍦"],
+["Juice","Sumo (letra J)","djús","🧃"],
+["Kite","Papagaio de papel (letra K)","káit","🪁"],
+["Lion","Leão (letra L)","lái-on","🦁"],
+["Moon","Lua (letra M)","mún","🌙"],
+["Nest","Ninho (letra N)","nést","🪹"],
+["Orange","Laranja (letra O)","ó-rendj","🍊"],
+["Pig","Porco (letra P)","píg","🐷"],
+["Queen","Rainha (letra Q)","kuín","👑"],
+["Rain","Chuva (letra R)","réin","🌧️"],
+["Sun","Sol (letra S)","sân","☀️"],
+["Tree","Árvore (letra T)","trí","🌳"],
+["Umbrella","Guarda-chuva (letra U)","âm-bré-la","☂️"],
+["Van","Carrinha (letra V)","vén","🚐"],
+["Water","Água (letra W)","uó-ter","💧"],
+["Fox","Raposa (letra X, som em fox)","fóks","🦊"],
+["Yellow","Amarelo (letra Y)","ié-lôu","🟡"],
+["Zebra","Zebra (letra Z)","zí-bra","🦓"]
+
+],
+
+reading:[
+
+["A is for Apple, B is for Ball.","A é de Maçã, B é de Bola."],
+
+["C is for Cat, D is for Dog.","C é de Gato, D é de Cão."],
+
+["Let's learn the alphabet together!","Vamos aprender o alfabeto juntos!"]
+
+]
+
+},
+
+
+{
+id:3,
+icon:"🔢",
+title:"Numbers",
+sub:"Números de 1 a 10",
+
+words:[
+
+["One","Um","uán","1️⃣"],
+["Two","Dois","tú","2️⃣"],
+["Three","Três","thrí","3️⃣"],
+["Four","Quatro","fôr","4️⃣"],
+["Five","Cinco","fáiv","5️⃣"],
+["Six","Seis","síks","6️⃣"],
+["Seven","Sete","sé-ven","7️⃣"],
+["Eight","Oito","êit","8️⃣"],
+["Nine","Nove","náin","9️⃣"],
+["Ten","Dez","tén","🔟"]
+
+],
+
+reading:[
+
+["I have one book.","Eu tenho um livro."],
+
+["She has two hands.","Ela tem duas mãos."],
+
+["We are ten friends.","Nós somos dez amigos."]
+
+]
+
+},
+
+
+{
+id:4,
+icon:"🎨",
+title:"Colors",
+sub:"As cores em inglês",
+
+words:[
+
+["Red","Vermelho","réd","🔴"],
+["Blue","Azul","blú","🔵"],
+["Yellow","Amarelo","iél-ôu","🟡"],
+["Green","Verde","grín","🟢"],
+["Orange","Laranja","ó-rendj","🟠"],
+["Purple","Roxo","pér-pol","🟣"],
+["Black","Preto","blék","⚫"],
+["White","Branco","uáit","⚪"]
+
+],
+
+reading:[
+
+["The sky is blue.","O céu é azul."],
+
+["My shirt is red.","A minha camisa é vermelha."],
+
+["I like the color green.","Eu gosto da cor verde."]
+
+]
+
+},
+
+
+{
+id:5,
+icon:"🐾",
+title:"Animals",
+sub:"Animais em inglês",
+
+words:[
+
+["Dog","Cão","dóg","🐶"],
+["Cat","Gato","két","🐱"],
+["Bird","Pássaro","bérd","🐦"],
+["Fish","Peixe","fích","🐟"],
+["Lion","Leão","lái-on","🦁"],
+["Elephant","Elefante","é-le-fant","🐘"],
+["Monkey","Macaco","mân-qui","🐒"],
+["Rabbit","Coelho","rré-bit","🐰"]
+
+],
+
+reading:[
+
+["The dog runs fast.","O cão corre depressa."],
+
+["The lion is big and strong.","O leão é grande e forte."],
+
+["I see a bird in the tree.","Eu vejo um pássaro na árvore."]
+
+]
+
+},
+
+
+{
+id:6,
+icon:"🧍",
+title:"Human Body",
+sub:"Partes do corpo",
+
+words:[
+
+["Head","Cabeça","héd","🧑"],
+["Eye","Olho","ái","👁️"],
+["Ear","Orelha","ír","👂"],
+["Nose","Nariz","nôuz","👃"],
+["Mouth","Boca","máuth","👄"],
+["Hand","Mão","hénd","✋"],
+["Arm","Braço","árm","💪"],
+["Leg","Perna","lég","🦵"]
+
+],
+
+reading:[
+
+["This is my head.","Esta é a minha cabeça."],
+
+["I have two eyes and two ears.","Eu tenho dois olhos e duas orelhas."],
+
+["I can move my hands and legs.","Eu posso mexer as minhas mãos e pernas."]
+
+]
+
+},
+
+
+{
+id:7,
+icon:"👤",
+title:"Pronouns & Auxiliary Verbs",
+sub:"Pronomes pessoais e verbos auxiliares",
+
+words:[
+
+["I","Eu","ái","👤"],
+["You","Tu / Você","iú","👤"],
+["He","Ele","hí","👨"],
+["She","Ela","shí","👩"],
+["Do","Fazer / auxiliar","dú","⚙️"],
+["Does","Faz / auxiliar","dâz","⚙️"],
+["Did","Fez / auxiliar","did","⏮️"],
+["To be","Ser / estar","tu bí","🔤"],
+["Have","Tenho / têm","rrév","🐕"],
+["Has","Tem","rréz","🚗"],
+["Can","Consigo / sei","kén","🏊"]
+
+],
+
+reading:[
+
+["I am a student.","Eu sou estudante."],
+
+["Do you speak English?","Você fala inglês?"],
+
+["She does her homework.","Ela faz o trabalho de casa."],
+
+["I can speak a little English.","Eu sei falar um pouco de inglês."]
+
+]
+
+},
+
+
+{
+id:8,
+icon:"📅",
+title:"Days of the Week",
+sub:"Os dias da semana",
+
+words:[
+
+["Monday","Segunda-feira","mân-dei","📖"],
+["Tuesday","Terça-feira","tiúz-dei","⚽"],
+["Wednesday","Quarta-feira","uénz-dei","🎨"],
+["Thursday","Quinta-feira","thérz-dei","🎵"],
+["Friday","Sexta-feira","frái-dei","🎉"],
+["Saturday","Sábado","sé-tor-dei","🛍️"],
+["Sunday","Domingo","sân-dei","⛪"]
+
+],
+
+reading:[
+
+["I go to school on Monday.","Eu vou à escola na segunda-feira."],
+
+["We rest on Sunday.","Nós descansamos no domingo."],
+
+["My favorite day is Friday.","O meu dia preferido é sexta-feira."]
+
+]
+
+},
+
+
+{
+id:9,
+icon:"🗓️",
+title:"Months",
+sub:"Os doze meses do ano",
+
+words:[
+
+["January","Janeiro","djén-iu-a-ri","🎆"],
+["February","Fevereiro","fé-briu-a-ri","❤️"],
+["March","Março","márch","🌱"],
+["April","Abril","êi-pril","🌧️"],
+["May","Maio","mêi","🌸"],
+["June","Junho","djún","☀️"],
+["July","Julho","dju-lái","🏖️"],
+["August","Agosto","ó-gast","🍉"],
+["September","Setembro","sep-tém-ber","🎒"],
+["October","Outubro","ók-tô-ber","🎃"],
+["November","Novembro","nô-vém-ber","🍁"],
+["December","Dezembro","di-sém-ber","🎄"]
+
+],
+
+reading:[
+
+["The year starts in January.","O ano começa em Janeiro."],
+
+["School starts in September.","A escola começa em Setembro."],
+
+["We celebrate Christmas in December.","Nós celebramos o Natal em Dezembro."]
+
+]
+
+},
+
+
+{
+id:10,
+icon:"🏠",
+title:"At Home",
+sub:"Objetos e cómodos da casa",
+
+words:[
+
+["Kitchen","Cozinha","kít-chen","🍳"],
+["Bedroom","Quarto","béd-rum","🛏️"],
+["Chair","Cadeira","tchér","🪑"],
+["Table","Mesa","têi-bol","🪑"],
+["Spoon","Colher","spún","🥄"],
+["Door","Porta","dór","🚪"],
+["Window","Janela","uín-dou","🪟"]
+
+],
+
+reading:[
+
+["My house has a kitchen and a bedroom.",
+"A minha casa tem uma cozinha e um quarto."],
+
+["There is a table and a chair.",
+"Há uma mesa e uma cadeira."],
+
+["I close the door and the window.",
+"Eu fecho a porta e a janela."]
+
+]
+
+},
+
+
+{
+id:11,
+icon:"🌦️",
+title:"Weather",
+sub:"O tempo e o clima",
+
+words:[
+
+["Sunny","Ensolarado","sâ-ni","☀️"],
+["Rainy","Chuvoso","réi-ni","🌧️"],
+["Cloudy","Nublado","kláu-di","☁️"],
+["Windy","Ventoso","uín-di","💨"],
+["Hot","Quente","rrót","🥵"],
+["Cold","Frio","côuld","🥶"],
+["Snow","Neve","snôu","❄️"],
+["Storm","Tempestade","stórm","⛈️"]
+
+],
+
+reading:[
+
+["Today is sunny.","Hoje está ensolarado."],
+
+["It is cold at night.","Está frio à noite."],
+
+["A storm is coming.","Uma tempestade está a chegar."]
+
+]
+
+},
+
+
+{
+id:12,
+icon:"👕",
+title:"Clothes & Possessives",
+sub:"Vestimentas e pronomes possessivos",
+
+words:[
+
+["Shirt","Camisa","shârt","👕"],
+["T-shirt","Camiseta","tí-shârt","👕"],
+["Trousers","Calças","tráu-zərz","👖"],
+["Dress","Vestido","drés","👗"],
+["Skirt","Saia","skârt","👗"],
+["Shoes","Sapatos","shúz","👞"],
+["Socks","Meias","sóks","🧦"],
+["Jacket","Casaco","djé-két","🧥"],
+["My","Meu / minha","mái","👤"],
+["Your","Teu / tua","iór","👤"],
+["His","Dele","hiz","👨"],
+["Her","Dela","hâr","👩"],
+["Our","Nosso / nossa","áur","👥"],
+["Their","Deles / delas","dhér","👥"]
+
+],
+
+reading:[
+
+["This is my shirt.","Esta é a minha camisa."],
+
+["Her dress is beautiful.","O vestido dela é bonito."],
+
+["Their shoes are black.","Os sapatos deles são pretos."]
+
+]
+
+},
+
+
+{
+id:13,
+icon:"👨‍👩‍👧",
+title:"Family",
+sub:"Membros da família",
+
+words:[
+
+["Mother","Mãe","mâ-dher","👩"],
+["Father","Pai","fá-dher","👨"],
+["Brother","Irmão","brâ-dher","👦"],
+["Sister","Irmã","sís-ter","👧"],
+["Baby","Bebé","bêi-bi","👶"],
+["Grandmother","Avó","grénd-mâ-der","👵"],
+["Grandfather","Avô","grénd-fá-der","👴"],
+["Family","Família","fé-mi-li","👨‍👩‍👧"]
+
+],
+
+reading:[
+
+["This is my family.","Esta é a minha família."],
+
+["My mother and father are at home.",
+"A minha mãe e o meu pai estão em casa."],
+
+["My grandmother tells nice stories.",
+"A minha avó conta histórias bonitas."]
+
+]
+
+},
+
+
+{
+id:14,
+icon:"😊",
+title:"Feelings",
+sub:"Emoções em inglês",
+
+words:[
+
+["Happy","Feliz","rré-pi","😊"],
+["Sad","Triste","séd","😢"],
+["Angry","Zangado","én-gri","😠"],
+["Tired","Cansado","táierd","😴"],
+["Scared","Assustado","squérd","😨"],
+["Excited","Entusiasmado","ik-sái-tid","🤩"],
+["Hungry","Com fome","rrán-gri","🍽️"],
+["Sleepy","Com sono","slí-pi","🥱"]
+
+],
+
+reading:[
+
+["I am happy today.","Eu estou feliz hoje."],
+
+["She is tired after school.","Ela está cansada depois da escola."],
+
+["We are excited for the party.","Nós estamos entusiasmados com a festa."]
+
+]
+
+},
+
+
+{
+id:15,
+icon:"🎒",
+title:"School",
+sub:"Objetos e sala de aula",
+
+words:[
+
+["Book","Livro","buk","📕"],
+["Pen","Caneta","pen","🖊️"],
+["Pencil","Lápis","pén-sil","✏️"],
+["Teacher","Professor(a)","tí-tcher","👩‍🏫"],
+["Student","Aluno(a)","stú-dent","🎓"],
+["Backpack","Mochila","bék-pék","🎒"],
+["Ruler","Régua","rú-ler","📏"],
+["Notebook","Caderno","nôut-búk","📓"]
+
+],
+
+reading:[
+
+["I have a book and a pencil.",
+"Eu tenho um livro e um lápis."],
+
+["The teacher is in the classroom.",
+"O professor está na sala de aula."],
+
+["I write in my notebook.",
+"Eu escrevo no meu caderno."]
+
+]
+
+},
+
+
+{
+id:16,
+icon:"🍎",
+title:"Food & Drinks",
+sub:"Comidas e bebidas",
+
+words:[
+
+["Water","Água","uó-ter","💧"],
+["Milk","Leite","milk","🥛"],
+["Bread","Pão","bred","🍞"],
+["Apple","Maçã","é-pol","🍎"],
+["Rice","Arroz","ráis","🍚"],
+["Egg","Ovo","ég","🥚"],
+["Fruit","Fruta","frút","🍇"],
+["Meat","Carne","mít","🍗"],
+["Vegetable","Legume","védj-ta-bol","🥕"]
+
+],
+
+reading:[
+
+["I drink water every day.",
+"Eu bebo água todos os dias."],
+
+["I like bread and apples.",
+"Eu gosto de pão e maçãs."],
+
+["Fruit is good for you.",
+"A fruta faz bem à saúde."]
+
+]
+
+},
+
+
+{
+id:17,
+icon:"⏰",
+title:"Daily Routine",
+sub:"Rotina diária",
+
+words:[
+
+["Wake up","Acordar","uêik âp","🌅"],
+["Eat","Comer","ít","🍽️"],
+["Study","Estudar","stâ-di","📚"],
+["Work","Trabalhar","uârk","💼"],
+["Sleep","Dormir","slíp","😴"]
+
+],
+
+reading:[
+
+["I wake up in the morning.",
+"Eu acordo de manhã."],
+
+["I study English every day.",
+"Eu estudo inglês todos os dias."]
+
+]
+
+},
+
+
+{
+id:18,
+icon:"💬",
+title:"Basic Conversations",
+sub:"Conversas simples",
+
+words:[
+
+["How are you?","Como estás?","háu ar iú","💬"],
+["I am fine.","Estou bem.","ái ém fáin","😊"],
+["What is your name?","Qual é o teu nome?","uót iz iór nêim","❓"],
+["Nice to meet you.","Prazer em conhecer-te.","náis tu mít iú","🤝"]
+
+],
+
+reading:[
+
+["Hello! How are you?","Olá! Como estás?"],
+
+["I am fine, thank you.",
+"Estou bem, obrigado(a)."],
+
+["Nice to meet you.",
+"Prazer em conhecer-te."]
+
+]
+
+}
+
+];
+
+
+/* =====================================
+   VARIÁVEIS
+===================================== */
+
+let current = 1;
+
+let qIndex = 0;
+
+let qScore = 0;
+
+let answered = false;
+
+let score =
+Number(localStorage.getItem("el_score") || 0);
+
+let completed =
+JSON.parse(
+localStorage.getItem("el_completed") || "[]"
+);
+
+
+/* =====================================
+   GUARDAR PROGRESSO
+===================================== */
+
+function save(){
+
+localStorage.setItem(
+"el_score",
+score
+);
+
+localStorage.setItem(
+"el_completed",
+JSON.stringify(completed)
+);
+
+document.getElementById("score").textContent =
+score;
+
+document.getElementById("lessons").textContent =
+completed.length + "/" + lessons.length;
+
+document.getElementById("level").textContent =
+Math.max(
+1,
+Math.floor(score / 100) + 1
+);
+
+}
+
+
+/* =====================================
+   NAVEGAÇÃO
+===================================== */
+
+function show(id){
+
+document
+.querySelectorAll(".screen")
+.forEach(
+s=>s.classList.remove("active")
+);
+
+document
+.getElementById(id)
+.classList.add("active");
+
+document
+.querySelectorAll(".nav button")
+.forEach(
+b=>
+b.classList.toggle(
+"active",
+b.dataset.s === id
+)
+);
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================
+   DESBLOQUEIO
+===================================== */
+
+function unlocked(i){
+
+return i === 1 ||
+completed.includes(i - 1);
+
+}
+
+
+/* =====================================
+   TRILHA
+===================================== */
+
+function renderPath(){
+
+const path =
+document.getElementById("path");
+
+path.innerHTML = "";
+
+lessons.forEach(
+(l,i)=>{
+
+let n = i + 1;
+
+let done =
+completed.includes(n);
+
+let can =
+unlocked(n);
+
+let button =
+document.createElement("button");
+
+button.className =
+"node " +
+(done ? "done " : "") +
+(!can ? "locked" : "");
+
+button.innerHTML = `
+
+<span class="ico">
+${done ? "✅" : l.icon}
+</span>
+
+<span>
+<b>Lição ${n}</b>
+<small>${l.title}</small>
+</span>
+
+<span class="tag">
+${done
+? "CONCLUÍDA"
+: can
+? "COMEÇAR"
+: "🔒"}
+</span>
+`;
+
+if(can){
+
+button.onclick =
+()=>openLesson(n);
+
+}
+
+path.appendChild(button);
+
+});
+
+}
+
+
+/* =====================================
+   ABRIR LIÇÃO
+===================================== */
+
+function openLesson(n){
+
+current = n;
+
+let l =
+lessons[n - 1];
+
+document.getElementById("title")
+.textContent =
+l.icon + " " + l.title;
+
+document.getElementById("subtitle")
+.textContent =
+l.sub;
+
+
+let html = `
+
+<div class="panel">
+
+<h3>
+📚 Vocabulário
+</h3>
+
+<div class="words">
+
+`;
+
+
+l.words.forEach(
+w=>{
+
+html += `
+
+<div class="word">
+
+<div class="pic">
+${w[3]}
+</div>
+
+<b>
+${w[0]}
+</b>
+
+<div class="pt">
+${w[1]}
+</div>
+
+<div class="fon">
+${w[2]}
+</div>
+
+<button
+class="play"
+onclick='speak(${JSON.stringify(w[0])})'>
+
+🔊
+
+</button>
+
+</div>
+
+`;
+
+});
+
+
+html += `
+
+</div>
+
+<div class="actions">
+
+<button
+class="primary"
+onclick="openReading()">
+
+📖 Ler texto
+
+</button>
+
+<button
+class="soft"
+onclick="startQuiz()">
+
+🧠 Fazer quiz
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+document.getElementById(
+"lessonBody"
+).innerHTML = html;
+
+show("lesson");
+
+}
+
+
+/* =====================================
+   LEITURA
+===================================== */
+
+function openReading(){
+
+let l =
+lessons[current - 1];
+
+let html =
+'<div class="reading">';
+
+
+l.reading.forEach(
+r=>{
+
+let words =
+r[0].split(" ");
+
+let sentence = "";
+
+words.forEach(
+word=>{
+
+let clean =
+word.replace(
+/[^A-Za-z?!.']/g,
+""
+);
+
+sentence += `
+
+<button
+class="wordtap"
+onclick='speak(${JSON.stringify(clean)})'>
+
+${word}
+
+</button>
+
+`;
+
+});
+
+html += `
+
+<div class="line">
+
+<div class="en">
+${sentence}
+</div>
+
+<div class="pt">
+${r[1]}
+</div>
+
+</div>
+
+`;
+
+});
+
+
+html += "</div>";
+
+
+html += `
+
+<div class="actions">
+
+<button
+class="primary"
+onclick='speak(${JSON.stringify(
+l.reading
+.map(r=>r[0])
+.join(" ")
+)})'>
+
+🔊 Ouvir texto
+
+</button>
+
+<button
+class="soft"
+onclick="startQuiz()">
+
+🧠 Quiz
+
+</button>
+
+</div>
+
+`;
+
+
+document.getElementById(
+"readingBody"
+).innerHTML = html;
+
+show("reading");
+
+}
+
+
+/* =====================================
+   VOZ (adaptado para funcionar em
+   qualquer navegador e telemóvel)
+===================================== */
+
+let englishVoice = null;
+let voicesReady = false;
+
+function pickVoice(){
+  const voices = speechSynthesis.getVoices();
+  if(voices && voices.length){
+    englishVoice = voices.find(v => v.lang === 'en-US') ||
+                   voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en')) || null;
+    voicesReady = true;
+  }
+}
+
+if('speechSynthesis' in window){
+
+  pickVoice();
+  speechSynthesis.onvoiceschanged = pickVoice;
+
+  // Alguns Android demoram a carregar as vozes: tenta várias vezes
+  let voiceTries = 0;
+  const voiceInterval = setInterval(() => {
+    voiceTries++;
+    if(voicesReady || voiceTries > 10){ clearInterval(voiceInterval); return; }
+    pickVoice();
+  }, 300);
+
+  // Desbloqueia o som no iPhone/iPad logo no primeiro toque no ecrã
+  const unlockAudio = () => {
+    const warm = new SpeechSynthesisUtterance(' ');
+    warm.volume = 0;
+    speechSynthesis.speak(warm);
+    document.removeEventListener('touchend', unlockAudio);
+    document.removeEventListener('click', unlockAudio);
+  };
+  document.addEventListener('touchend', unlockAudio, {once:true});
+  document.addEventListener('click', unlockAudio, {once:true});
+}
+
+function speak(text){
+
+if(!("speechSynthesis" in window)){
+
+alert(
+"Este navegador não tem som de voz. Experimenta o Chrome ou o Safari atualizados."
+);
+
+return;
+
+}
+
+speechSynthesis.cancel();
+
+let u =
+new SpeechSynthesisUtterance(text);
+
+u.lang = "en-US";
+
+if(englishVoice) u.voice = englishVoice;
+
+u.rate = 0.78;
+
+u.pitch = 1.03;
+
+// pequeno atraso evita que alguns Android "engulam" a primeira fala
+setTimeout(() => speechSynthesis.speak(u), 30);
+
+}
+
+
+/* =====================================
+   QUIZ
+===================================== */
+
+let qs = [];
+
+
+function makeQuestions(){
+
+let l =
+lessons[current - 1];
+
+let w =
+l.words;
+
+
+return [
+
+{
+
+question:
+`What is "${w[0][0]}"?`,
+
+translation:
+`O que significa "${w[0][0]}"?`,
+
+correct:
+w[0][1],
+
+options:
+w.slice(0,4)
+.map(x=>x[1])
+
+},
+
+{
+
+question:
+`How do you say "${w[1][1]}" in English?`,
+
+translation:
+`Como se diz "${w[1][1]}" em inglês?`,
+
+correct:
+w[1][0],
+
+options:
+w.slice(0,4)
+.map(x=>x[0])
+
+},
+
+{
+
+question:
+`Choose the correct pronunciation for "${w[2][0]}".`,
+
+translation:
+`Escolhe a pronúncia correta para "${w[2][0]}".`,
+
+correct:
+w[2][2],
+
+options:[
+w[2][2],
+w[0][2],
+w[1][2],
+w[3]
+? w[3][2]
+: w[2][2]
+]
+
+}
+
+];
+
+}
+
+
+function startQuiz(){
+
+qIndex = 0;
+
+qScore = 0;
+
+qs =
+makeQuestions();
+
+renderQ();
+
+show("quiz");
+
+}
+
+
+function renderQ(){
+
+answered = false;
+
+let q =
+qs[qIndex];
+
+document.getElementById(
+"counter"
+).textContent =
+`Pergunta ${qIndex + 1} de ${qs.length}`;
+
+document.getElementById(
+"question"
+).textContent =
+q.question;
+
+document.getElementById(
+"translation"
+).textContent =
+q.translation;
+
+document.getElementById(
+"feedback"
+).textContent =
+"";
+
+document.getElementById(
+"next"
+).style.display =
+"none";
+
+
+let options =
+document.getElementById("opts");
+
+options.innerHTML = "";
+
+
+[
+...q.options
+]
+.sort(
+()=>Math.random() - .5
+)
+.forEach(
+answer=>{
+
+let button =
+document.createElement("button");
+
+button.className =
+"opt";
+
+button.textContent =
+answer;
+
+button.onclick =
+()=>answerQuestion(
+button,
+answer,
+q.correct
+);
+
+options.appendChild(button);
+
+});
+
+}
+
+
+function answerQuestion(
+button,
+answer,
+correct
+){
+
+if(answered)return;
+
+answered = true;
+
+
+if(answer === correct){
+
+button.classList.add("ok");
+
+qScore++;
+
+score += 10;
+
+document.getElementById(
+"feedback"
+).textContent =
+"✅ Correto! +10 pontos";
+
+}
+else{
+
+button.classList.add("bad");
+
+document
+.querySelectorAll(".opt")
+.forEach(
+b=>{
+
+if(b.textContent === correct){
+
+b.classList.add("ok");
+
+}
+
+});
+
+document.getElementById(
+"feedback"
+).textContent =
+"❌ A resposta correta está marcada.";
+
+}
+
+
+save();
+
+document.getElementById(
+"next"
+).style.display =
+"inline-block";
+
+}
+
+
+function nextQ(){
+
+if(qIndex < qs.length - 1){
+
+qIndex++;
+
+renderQ();
+
+}
+else{
+
+finishQuiz();
+
+}
+
+}
+
+
+/* =====================================
+   FINAL
+===================================== */
+
+function finishQuiz(){
+
+let points =
+Math.round(
+(qScore / qs.length) * 100
+);
+
+
+if(qScore >= 2){
+
+if(!completed.includes(current)){
+
+completed.push(current);
+
+completed.sort(
+(a,b)=>a-b
+);
+
+score += 20;
+
+}
+
+}
+
+
+save();
+
+document.getElementById(
+"resultScore"
+).textContent =
+points + "/100";
+
+
+document.getElementById(
+"resultStars"
+).textContent =
+"★".repeat(qScore) +
+"☆".repeat(qs.length-qScore);
+
+
+let message =
+"Continua a praticar.";
+
+if(qScore === 3){
+
+message =
+"🎉 Excelente! Lição concluída! A próxima lição foi desbloqueada.";
+
+}
+else if(qScore === 2){
+
+message =
+"👏 Muito bem! Lição concluída. Continua a praticar.";
+
+}
+
+
+document.getElementById(
+"resultText"
+).textContent =
+message;
+
+renderPath();
+
+show("result");
+
+}
+
+
+/* =====================================
+   INICIAR
+===================================== */
+
+renderPath();
+
+save();
+
+</script>
+
+</body>
+</html>
